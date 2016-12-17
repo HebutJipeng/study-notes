@@ -39,3 +39,28 @@
      if(distanceScroll + divHight >= distanceScrollCount - 20)
           alert("滚动条到底部了");
      });
+
+
+3. jq自定义选择器(奇淫巧技系列)
+	$.expr[':'].text = function(obj, index, meta, stack) {
+		/* obj 当前的DOM元素
+		index 当前元素在stack 中的索引？
+		meta 用来存参数值
+		satck 选择其中所选中的元素集
+
+		return true to include current el
+		return false to explude current el
+		*/
+	}
+	
+	$('.someClasses:test').doSometing();
+	$(".someClasses:test('arg1, arg2')").toSomething();
+	$(".someClasses:test('argument')").doSomething(); //meta
+	
+	meta 就会得到以下的格式:
+	{
+		':test(argument)',
+		'test',
+		'',
+		'argument'
+	}
