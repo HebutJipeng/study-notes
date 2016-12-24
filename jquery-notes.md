@@ -41,7 +41,7 @@
      });
 
 
-3. jq自定义选择器(奇淫巧技系列)
+4. jq自定义选择器(奇淫巧技系列)
 	$.expr[':'].text = function(obj, index, meta, stack) {
 		/* obj 当前的DOM元素
 		index 当前元素在stack 中的索引？
@@ -64,3 +64,23 @@
 		'',
 		'argument'
 	}
+
+4. $.noConflict()
+	如果其他js框架也和jq一样使用  $作为框架缩写改怎么办呢？
+	这个方法就尤其管用了。
+
+	noConflict 方法会释放 $标识符的控制，这样其他脚本就可以控制它了
+
+	$.noConflict();
+	jQuery(document).ready(function() {})
+
+	i也可以创建自己的简写，noConflict 可返回对jq的引用，可以把他存起来，以供稍后 使用。
+	var jq = $.noConflict();
+	jq(document).ready(function()｛})
+
+	如果你的jq代码块使用了 $ 简写，并且你不愿意更改这个快捷方式，那么可以把 $符号作为变量传递给ready方法。这样就可以在函数内使用 $付好了。而在函数外，由于已经释放对 $ 对控制，所以我们不得不接着 使用jQuery
+	$.noConflict();
+	jQuery(document).ready(function($) {
+		$("button").click(function() {
+		})
+	})
