@@ -84,3 +84,12 @@
 		$("button").click(function() {
 		})
 	})
+
+5. jq复合属性选择器 [selector1][selector2][selectorN]
+	事实上，jq远比你想象的更加智能
+   在学习 jq核心的时候，遇到了  queue(e, [q]) 这一些列函数，还不是很清楚 其具体的作用。
+
+6. jQuery.fn.extend(object) 扩展jQuery 元素来提供新的方法
+   jQuery.extend(object) 扩展jQuery对象本身 。用来在jQuery命名空间上添加新函数。
+
+   q: jq的命名空间是什么？

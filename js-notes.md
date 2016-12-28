@@ -59,3 +59,54 @@ js中的数组同时属于索引数组和动态数组，因为本质上js的数�
 	参考： http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html
 
 	2 jsonp 等。今天不想看了:(
+
+4. js的命名空间  namespace
+	http://ourjs.com/detail/538d8d024929582e6200000c
+	http://blog.sina.com.cn/s/blog_6d3f840a0102uxcr.html
+	https://my.oschina.net/u/1540325/blog/502229
+
+	看过三位大神对命名空间的理解，看来是有点明白了。
+
+5. isNaN
+	判断它是不是一个非数字
+	我觉得最根本就是 这几个
+	isNaN()    NaN  ---> true
+		undefined ---> true
+		{}  ---> true 
+
+		true ---> false
+		null ---> false
+		37  ---> false  
+
+		"37" ---> false
+		"37.12" ---> false
+		"123abc" ---> true
+		"" --> false
+		"  “ -> false
+
+		new Date()  --> false
+		new Date().toString() --> true
+
+	等价于
+	isNaN = function(value) {
+		Number.isNaN(Number(value))
+		}
+
+	
+6. Null 和 Undefined 的区别
+	null 类型只有一个值，就是 null  。用来表示尚未存在的对象，常用来表示函数企图返回一个不存在的对象
+	undefined 也只有一个值，就是undefined 。当声明的变量未被初始化的时候，变量默认值为 unfinished
+
+	typeof undefined ==> undefined 
+	typeof undefined ==> object //理解为 null是一个不存在对象的占位符，其实这并不正确
+
+	console.log(null == undefined)   ==> true
+
+	undefined 是从null 派生出来的，所以把他们定义为相等。
+
+	区分：
+	null === undefined ==>false
+	typeof null  == typeof undefined ==> false
+
+
+
