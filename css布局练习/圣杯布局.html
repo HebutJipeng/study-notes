@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.left,.middle,.right {
+			float: left;
+			height: 500px;
+		}
+
+		.left {
+			width: 200px;
+			background-color: red;
+			margin-left: -100%;
+			position: relative;
+			left: -200px;
+		}
+
+		.right {
+			width: 200px;
+			background-color: yellow;
+			margin-left: -200px;
+			position: relative;
+			right: -200px;
+		}
+
+		.middle {
+			width: 100%;
+			background-color: blue;
+		}
+
+		.container {
+			min-width: 400px; 
+			padding: 0 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="middle">main11111</div>
+		<div class="left">left1111</div>
+		<div class="right">right 2222</div>
+	</div>
+</body>
+</html>
