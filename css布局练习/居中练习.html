@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+    body {
+        background: orange;
+    }
+    
+    .container {
+        background: red;
+    }
+    
+    .block {
+        width: 200px;
+        height: 200px;
+        background: blue;
+    }
+    </style>
+    <!-- 使用absolute 和 margin为0 居中
+	<div class="block"></div>
+	<style>
+		.block {
+			margin: auto;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+		}
+	</style>-->
+    <!-- 与上文同理，固定容器内需要加一个relative
+ 	<div class="container">
+ 		<div class="block"></div>
+ 	</div>
+ 	<style>
+ 		.container {
+ 			position: relative;
+ 			width: 100%;
+ 			height: 500px;
+ 		}
+
+ 		.block {
+ 			margin: auto;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+ 		}
+ 	</style> -->
+    <!--
+    <div class="container">
+        <div class="block"></div>
+    </div>
+    <style>
+    .container {
+        position: relative;
+        width: 100%;
+        height: 500px;
+    }
+    
+    .block {
+        margin: auto;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+    }-->
+    <!-- 可以设置响应式的居中
+    <div class="container">
+        <div class="block is-Responsive"></div>
+    </div>
+    <style>
+    .container {
+        position: relative;
+        width: 100%;
+        height: 500px;
+    }
+    
+    .block {
+        margin: auto;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 999;
+    }
+    .block.is-Responsive {
+        width: 60%;
+        height: 60%;
+        min-width: 200px;
+        max-width: 400px;
+    }
+    </style>-->
+    <!-- <div class="block"></div>
+
+    <style>
+    	.block {	
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -100px;
+			margin-top: -100px;
+			box-sizing: border-box;
+    	}
+    </style> 
+
+    　需要注意的是，这是按照预想情况也能在工作在IE6-7下的唯一方法。
+
+    　好处：
+
+		浏览器兼容性非常好，甚至支持IE6-7
+		需要的编码量很少
+
+	　同时注意：
+
+		这是个非响应式的方法，不能使用百分比的大小，也不能设置min-/max-的最大值最小值。
+		内容可能会超出容器
+		需要为padding预留空间，或者需要使用box-sizing: border-box样式。-->
+    <!--
+    <div class="block"></div>
+    <style>
+        .block {
+	            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        好处：
+
+		内容高度可变
+		代码量小
+　　同时注意：
+
+		不支持IE8
+		需要写厂商前缀
+		会和其他transform样式有冲突
+		某些情况下的边缘和字体渲染会有问题
+    </style>
+    -->
+    <!-- 
+    <div class="container">
+    	<div class="table-cell">
+    		<div class="block"></div>
+    	</div>
+    </div>
+
+    <style>
+    	.container {
+    		display: table;
+    		width: 100%;
+    		height: 500px;
+    	}
+
+    	.table-cell {
+    		display: table-cell;
+    		vertical-align: middle;
+    	}
+
+    	.block {
+    		margin: 0 auto;
+    	}
+    </style>
+    好处：
+
+		内容高度可变
+		内容溢出则能自动撑开父元素高度
+		浏览器兼容性好
+　　同时注意：
+
+		需要额外的HTML标签 -->
+    <!-- 
+    <div class="container">
+        <div class="block"></div>
+    </div>
+    <style>
+    .container {
+    	width: 100%;
+    	height: 500px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+
+
+    </style>
+        好处：
+
+			内容可以是任意高宽，溢出也能表现良好
+			可以用于各种高级布局技巧
+　　同时注意： 不支持IE8-9
+
+			需要在body上写样式，或者需要额外容器
+			需要各种厂商前缀兼容现代浏览器
+			可能有潜在的性能问题 -->
+
+	<!-- 	
+    <div class="Center-Container is-Inline">
+        <div class="Center-Block">
+            CONTENT
+        </div>
+    </div>
+    <style>
+    .Center-Container.is-Inline {
+        text-align: center;
+        overflow: auto;
+    }
+    
+    .Center-Container.is-Inline:after,
+    .is-Inline .Center-Block {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    .Center-Container.is-Inline:after {
+        content: '';
+        height: 100%;
+        margin-left: -0.25em;
+        /* To offset spacing. May vary by font */
+    }
+    
+    .is-Inline .Center-Block {
+        max-width: 99%;
+        /* Prevents issues with long content causes the content block to be pushed to the top */
+        /* max-width: calc(100% - 0.25em) /* Only for IE9+ */
+    }
+    </style>
+    好处： 内容高度可变 内容溢出则能自动撑开父元素高度 浏览器兼容性好，甚至可以调整支持IE7 　　同时注意： 需要额外容器 依赖于margin-left: -0.25em的样式，做到水平居中，需要为不同的字体大小作调整 内容区声明的宽度不能大于容器的100% 减去0.25em的宽度 -->
+</body>
+
+</html>

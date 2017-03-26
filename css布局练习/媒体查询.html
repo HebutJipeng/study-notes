@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="parent">
+		<div class="column">111</div>
+		<div class="column">222</div>
+		<div class="column">333</div>
+	</div>	
+	<style>
+
+		/*.parent {
+			display: flex
+		}
+
+		.column {
+			flex: 0 1 33%;
+		}
+
+		@media screen and (max-width: 400px){
+			.parent {
+				flex-direction: column;
+			}	
+		}*/
+
+		.parent {
+			overflow: hidden;
+		}
+
+		.column {
+			float: left;
+			width: 33%;
+		}
+
+		@media screen and (max-width: 400px) {
+			.column {
+				float: none;
+			}
+		}
+	</style>
+</body>
+</html>
