@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="block1">1</div>
+		<div class="block2">2</div>	
+		<div class="block3">3</div>
+		<div class="block4">4</div>
+	</div>
+
+	<style>
+		.container	{
+			position: relative;
+			margin: 0 10%;
+			width: 80%;
+			height: 500px;
+			background-color: yellow;
+		}
+
+		.container div {
+			width: 100px;
+			height: 100px;
+			background-color: #eee;
+		}
+
+		.container .block1 {
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: none;
+		}
+
+		.container .block2 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: red;
+			float: none;
+			display: block;
+		}
+	</style>
+	
+</body>
+</html>
