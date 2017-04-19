@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <input id="fileId1" type="file" accept="image/png,image/gif" onchange="fileupload(this)" name="file" data-id="0" /> -->
+    <input id="fileId1" type="file" accept="image/png,image/gif" name="file" data-id="0" />
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    function fileupload(source) {
+        // var flag = source === $('#fileId1').get(0)? true: false;
+        var flag = source === $('#fileId1')[0] ? true : false;
+        console.log(flag);
+
+        var file = source.files[0];
+        var fr = new FileReader();
+        fr.onloadend = function(e) {
+            addImg(e.target.result);
+        }
+
+        // 传入一个dom对象，而非一个jq对象
+        // 转化 jquery  =>  DOM
+        // $().get(0)  或者 $()[0]
+
+        fr.readAsDataURL(file);
+    };
+
+    function addImg(url) {
+        $('body').append('<img src="' + url + '">');
+    }
+
+    $('#fileId1').on('change', function() {
+        fileupload($(this).get(0));
+    })
+    </script>
+    
+    <!-- filereader 的 API -->
+    <!-- abort 中断
+    readAsBinaryString 读取为二进制
+    readAsDataURL 读取位DataURL
+    readAsText 读取为文本 -->
+</body>
+
+</html>
