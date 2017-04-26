@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- 当 Vue.js 用 v-for 正在更新已渲染过的元素列表时，它默认用 “就地复用” 策略。如果数据项的顺序被改变，Vue将不是移动 DOM 元素来匹配数据项的顺序， 而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。这个类似 Vue 1.x 的 track-by="$index" 。 -->
+    <ul id="list">
+        <li v-for="list in lists">
+            {{list}}
+        </li>
+        <button @click="reverse">111</button>
+        <li is="to-list" v-for="list1 in lists" :list="list1"></li>
+    </ul>
+    <div id="select">
+        <select v-model="selected">
+        	<option v-for="o in options" v-bind:value="o.content">{{o.tx1}}</option>
+        </select>
+        <span>{{selected}}</span>
+
+        <hr>
+
+        <input type="radio" name="single" v-model="picked" value="a">
+        <input type="radio" name="single" v-model="picked" value="b">
+        <span>{{picked}}</span>
+
+        <hr>
+
+        <input type="text" v-model.lazy="textinput">
+        <span>{{textinput}}</span>
+    </div>
+    <script type="text/javascript">
+    Vue.component('to-list', {
+        template: '\
+    		<li>\
+    			{{ list }}\
+    		</li>\
+    		',
+        props: ['list'],
+        created() {
+            console.log('222');
+        },
+        updated() {
+            console.log('111', this.list);
+        }
+    })
+
+    var vm = new Vue({
+        el: '#list',
+        data: {
+            lists: [
+                'h1',
+                'h2',
+                'h3',
+                'h4',
+                'h5'
+            ]
+
+        },
+        methods: {
+            reverse: function() {
+                console.log('000', this.lists);
+                this.lists = this.lists.reverse();
+            }
+        }
+    })
+
+    var vm1 = new Vue({
+        el: '#select',
+        data: {
+        	picked: true,
+            selected: 'c1',
+            options: [{
+                    tx1: 'hello',
+                    content: 'c1'
+                }, {
+                    tx1: 'hello2',
+                    content: 'c2'
+                }, {
+                    tx1: 'hello3',
+                    content: 'c3'
+                }
+
+            ],
+            textinput: ""
+        }
+    })
+    </script>
+</body>
+
+</html>
