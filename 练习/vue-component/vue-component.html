@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="com">
+        <my-hello message="hello" :msg1="msg" ></my-hello>
+        {{num}}
+        <my-num :num="num" v-on:increase="increaseTotal"></my-num>
+	    <my-num :num="num" v-on:increase="increaseTotal"></my-num>
+    </div>
+    <script type="text/javascript">
+    // 组件模板只能包含一个根 标签
+    var Child = {
+        template: '<div>hello world {{message}} {{counter}}\
+			<div>{{computeCounter}}</div>\
+        </div>',
+        props: ['message', 'msg1'],
+        data() {
+            return {
+                counter: this.msg1
+            }
+        },
+        computed: {
+            computeCounter: function() {
+                return this.counter + ' sorry i dont no';
+            }
+        }
+    }
+
+    var Num = {
+    	template: '<button @click="increase">{{num1}}</button>',
+    	data() {
+    		return {
+    			num1: this.num
+    		}
+    	},
+    	props: ['num'],
+    	methods: {
+    		increase: function() {
+    			this.num1 += 1;
+    			this.$emit('increase');
+    		}
+    	}
+
+    }
+    var vm = new Vue({
+        el: '#com',
+        data: {
+            msg: 'no1 msg',
+            num: 0
+        },
+        components: {
+            'my-hello': Child,
+            'my-num': Num
+        },
+        methods: {
+        	increaseTotal: function() {
+        		this.num += 1;
+        	}
+        }
+    })
+    </script>
+</body>
+
+</html>
