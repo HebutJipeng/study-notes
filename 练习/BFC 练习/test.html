@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>bfc</title>
+  </head>
+  <body>
+    <h1>关于BFC的一些学习记录</h1>
+    <hr>
+
+    <p>规则：</p>
+    <ol>
+      <li>内部的Box会在垂直方向，一个接一个地放置。</li>
+      <li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠</li>
+      <li>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
+      <li>BFC的区域不会与float box重叠。</li>
+      <li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+      <li>计算BFC的高度时，浮动元素也参与计算</li>
+    </ol>
+    <hr>
+
+    <p>产生条件</p>
+    <ol>
+      <li>根元素</li>
+      <li>float属性不为none</li>
+      <li>position为absolute或fixed</li>
+      <li>display为inline-block, table-cell, table-caption, flex, inline-flex</li>
+      <li>overflow不为visible</li>
+    </ol>
+    <hr>
+
+    <h2>自适应的两栏布局</h2>
+    <style media="screen">
+      .aside {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+      .main {
+        height: 200px;
+        background: orange;
+        overflow: hidden;
+      }
+    </style>
+    <div class="aside"></div>
+    <div class="main"></div>
+    <hr>
+
+    <h2>清除内部浮动</h2>
+    <style>
+      .parent {
+        border: 5px solid pink;
+        width: 300px;
+        overflow: hidden;
+      }
+
+      .child {
+        border: 5px solid orange;
+        width: 100px;
+        height: 100px;
+        float: left;
+      }
+    </style>
+    <div class="parent">
+      <div class="child"></div>
+      <div class="child"></div>
+    </div>
+    <hr>
+
+    <h2>防止垂直margin</h2>
+    <style media="screen">
+      .p {
+        color: orange;
+        background: pink;
+        width: 200px;
+        line-height: 100px;
+        margin: 100px;
+        text-align: center;
+        overflow: hidden;
+      }
+      .wrap {
+        overflow: hidden;
+      }
+    </style>
+    <p class="p">hahah</p>
+    <div class="wrap">
+      <p class="p">lallalal</p>
+    </div>
+    <hr>
+
+    <br>
+    <br>
+
+    <p>总结:BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</p>
+    <p>参考文档： <a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html">http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html</a></p>
+  </body>
+</html>
