@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>两列布局</h1>
+    <hr>
+    <h2>运用absolute</h2>
+    <style type="text/css">
+    .one {
+        position: absolute;
+        height: 100px;
+        width: 300px;
+        background-color: blue;
+    }
+    
+    .two {
+        height: 200px;
+        margin-left: 300px;
+        background-color: red;
+    }
+    </style>
+    <div>
+        <div class="one"></div>
+        <div class="two"></div>
+    </div>
+    <hr>
+    <h2>BFC</h2>
+    <style type="text/css">
+    .three {
+        float: left;
+        height: 100px;
+        width: 300px;
+        background-color: blue;
+    }
+    
+    .four {
+        overflow: auto;
+        height: 200px;
+        background-color: red;
+    }
+    </style>
+    <div class="three"></div>
+    <div class="four"></div>
+    <hr>
+    <h2>Float</h2>
+    <style type="text/css">
+    .five {
+        float: left;
+        height: 100px;
+        width: 300px;
+        background-color: blue;
+    }
+    
+    .four {
+        height: 200px;
+        margin-left: 210px;
+        background-color: red;
+    }
+    </style>
+    <div class="five"></div>
+    <div class="four"></div>
+    <hr>
+    <h2>FLEX</h2>
+    <style type="text/css">
+    .parent {
+        text-align: center;
+        line-height: 200px;
+        display: flex;
+    }
+    
+    .side {
+        width: 200px;
+        height: 200px;
+        background: blue;
+        margin-right: 10px;
+    }
+    
+    .main {
+        background: red;
+        height: 200px;
+        flex: 1;
+    }
+    
+    ​
+    </style>
+    <div class="parent">
+        <div class="side"></div>
+        <div class="main"></div>
+    </div>
+</body>
+
+</html>
