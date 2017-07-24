@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sticky Footer</title>
+</head>
+
+<body>
+    <h1>Sticky Footer</h1>
+    <hr>
+    <h2>calc</h2>
+    <style type="text/css">
+    main {
+        min-height: calc(100vh - 2.5em - 7em);
+        /* Avoid padding/borders screwing up our height: */
+        box-sizing: border-box;
+    }
+    
+    #wrapper {
+        min-height: calc(100vh - 7em);
+    }
+    </style>
+    <header>
+        <h1>Site name</h1> </header>
+    <main>
+        <p>Bacon Ipsum dolor sit amet...
+            <!-- Filler text from baconipsum.com -->
+        </p>
+    </main>
+</body>
+
+</html>
