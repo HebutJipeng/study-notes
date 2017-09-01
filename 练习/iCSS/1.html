@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>1.</h1>
+<div class="div1"></div>
+<style type="text/css">
+	div {
+		position: relative;
+		width: 200px;
+		height: 60px;
+		background-color: #eee;
+	}
+	.div1 {
+		border-left: 5px solid pink;
+	}
+</style>
+<h1>2.</h1>
+<div class="div2"></div>
+<style type="text/css">
+	.div2:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 5px;
+		background-color: pink;
+	}
+</style>
+<h1>3. 阴影</h1>
+<div class="div3"></div>
+<style type="text/css">
+	.div3 {
+		box-shadow: -5px 0 0 0 pink;
+	}
+</style>
+<h1>4.</h1>
+<div class="div4"></div>
+<style type="text/css">
+	.div4 {
+		box-shadow: inset 5px 0 0 0 pink;
+	}
+</style>
+<h1>5.</h1>
+<div class="div5"></div>
+<style type="text/css">
+	.div5 {
+		filter: drop-shadow(-5px 0 0 pink);
+	}
+</style>
+<h1>6. 渐变</h1>
+<div class="div6"></div>
+<style type="text/css">
+	.div6 {
+		background-image: linear-gradient(90deg, pink 0px, pink 5px, transparent 5px);
+	}
+</style>
+<h1>7.(不是很成功 不太理解</h1>
+<div class="div7"></div>
+<style type="text/css">
+	.div7 {
+		height:50px;
+		outline:5px solid deeppink;
+		position:absolute;
+		content:"";
+		top:-5px;
+		bottom:-5px;
+		right:-5px;
+		left:0;
+		background:#ddd;
+	}
+</style>
+<h1>8.</h1>
+<div class="div8"></div>
+<style type="text/css">
+	.div8 {
+		width: 205px;
+		background-color: pink;
+		overflow-y: scroll;
+	}
+	.div8::-webkit-scrollbar {
+		width: 200px;
+		background-color: #ddd;
+	}
+</style>
+</body>
+</html>
