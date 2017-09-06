@@ -93,3 +93,6 @@
    jQuery.extend(object) 扩展jQuery对象本身 。用来在jQuery命名空间上添加新函数。
 
    q: jq的命名空间是什么？
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>

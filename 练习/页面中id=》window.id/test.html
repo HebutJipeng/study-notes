@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <title>Document</title>
 </head>
+
 <body>
-	<h1>在js中直接使用页面中的元素ID,即可选中页面DOM元素</h1>
-	
+    <h1>在js中直接使用页面中的元素ID,即可选中页面DOM元素</h1>
+    <hr>
+    <p>在chrome的控制台中，输入一个元素的ID,就可以访问到这个元素</p>
+    <p>网上大神解释：所有的元素ID都是全局变量。</p>
+    <hr> 
+    <h2>HTML5规范文档中指出：如果一个元素符合下面两条规则中的任一条，则window对象中必须要有与之对应的一个属性，属性值就是这个对象。</h2>
+    <ul>
+    	<li>1.如果一个元素拥有ID属性，那么ID属性的属性值就会成为window对象的属性名</li>
+    	<li>2.如果一个元素拥有name属性，那么name属性的属性值就会成为window对象的属性名.但这个元素的标签名必须是: a, applet, area, embed, form, frame, frameset, iframe, img, object 其中的一种</li>
+    </ul>
+
+    <a href="http://www.cnblogs.com/jiangxiaobo/p/6061745.html">传送门</a>
 </body>
+
 </html>
