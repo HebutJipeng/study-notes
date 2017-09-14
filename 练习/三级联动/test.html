@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+</head>
+
+<body>
+	<p>现在选择：<span class="display"></span></p>
+    <div class="container">
+        <ul class="item-1">
+            <li class="active">
+                <a href="">11</a>
+                <ul class="item-2">
+                    <li class="active">
+                        <a href="">21</a>
+                        <ul class="item-3">
+                            <li>311</li>
+                            <li>312</li>
+                            <li>313</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">21</a>
+                        <ul class="item-3">
+                            <li>324</li>
+                            <li>325</li>
+                            <li>326</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">21</a>
+                        <ul class="item-3">
+                            <li>337</li>
+                            <li>338</li>
+                            <li>339</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="">12</a>
+                <ul class="item-2">
+                    <li class="active">
+                        <a href="">22</a>
+                        <ul class="item-3">
+                            <li>311</li>
+                            <li>312</li>
+                            <li>313</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">22</a>
+                        <ul class="item-3">
+                            <li>324</li>
+                            <li>325</li>
+                            <li>326</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">22</a>
+                        <ul class="item-3">
+                            <li>337</li>
+                            <li>338</li>
+                            <li>339</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="ta">
+                <a href="">13</a>
+                <ul class="item-2">
+                    <li class="active">
+                        <a href="">23</a>
+                        <ul class="item-3">
+                            <li>311</li>
+                            <li>312</li>
+                            <li>313</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">23</a>
+                        <ul class="item-3">
+                            <li>324</li>
+                            <li>325</li>
+                            <li>326</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">23</a>
+                        <ul class="item-3">
+                            <li>337</li>
+                            <li>338</li>
+                            <li>339</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <style>
+    .item-1 {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+        background: red;
+        color: white;
+    }
+
+    .item-1>li.active>.item-2 {
+        display: inline-block;
+    }
+
+    .item-2 {
+        position: absolute;
+        top: 0;
+        left: 100px;
+        display: inline-block;
+        width: 100px;
+        background: yellow;
+        display: none;
+    }
+
+    .item-2>li.active>.item-3 {
+        display: inline-block;
+    }
+
+    .item-3 {
+        position: absolute;
+        top: 0;
+        left: 100px;
+        display: inline-block;
+        width: 100px;
+        background: blue;
+        display: none;
+    }
+
+    .item-1>li.active,
+    .item-2>li.active,
+    .item-3>li.active {
+    	background: orange;
+    }
+    </style>
+
+    <script>
+    	$('.item-1').children().hover(hoverOver, hoverOut)
+    	$('.item-2').children().hover(hoverOver, hoverOut)
+    	$('.item-3').children().on('click', clickMe)
+
+    	function hoverOver() {
+    		var $this = $(this)
+    		resetState($this)
+    		$this.siblings().removeClass('active').end().addClass('active')
+    	}
+
+    	function hoverOut() {
+    		if ($(this).siblings().hasClass('active')) {
+	    		$(this).removeClass('active')
+    		}
+    	}
+
+    	function resetState($t) {
+    		$t.children('[class^="item"]').find('li').removeClass('active').eq(0).addClass('active')
+    	}
+
+    	function clickMe() {
+    		$(this).addClass('active').siblings().removeClass('active')
+    		var _text = $(this).html();
+    		$(this).parents('.active').each(function(i, v) {
+    			_text += '-' +$(v).children('a').html() 
+    		})
+    		$('.display').html(_text)
+    	}
+    </script>
+</body>
+
+</html>

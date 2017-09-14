@@ -1,0 +1,8 @@
+.container {
+	.hello {
+		background: red;
+	}
+	&.hi {
+		color: yellow;
+	}
+}
