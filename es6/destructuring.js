@@ -133,5 +133,27 @@ const node = {
 }
 let { loc, loc: { start }, loc: { start: { line }} } = node
 
+// 嵌套解构
+let obj = {};
+let arr = [];
 
+let { foo: obj.v, bar: arr[0] } = { foo: 'aaa', bar: 'bbb'}
+// obj -> { v: 'aaa' }, arr = ['bbb']
+
+// 对象解构也可以有默认值
+let {x = 3} = {}
+// x -> 3
+let {x, y = 5} = { x: 1 }
+// x -> 1, y -> 5
+let { x: y = 3 } = {}
+// y -> 3
+let { message: msg = 'hello world' } = {}
+// msg -> 'hello world'
+
+
+// 默认值生效的条件 -》 对象的属性值严格等于undefined
+let { x = 3 } = { x = undefined }
+// x -> 3
+let { x = 3 } = { x = null }
+// x -> null
 
