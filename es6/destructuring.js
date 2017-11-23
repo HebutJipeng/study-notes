@@ -157,3 +157,110 @@ let { x = 3 } = { x = undefined }
 let { x = 3 } = { x = null }
 // x -> null
 
+// 如果解构失败，变量的值等于 undefined
+let { foo } = { bar: 'baz' }
+// foo -> undefined
+
+// 如果解构模式是嵌套的对象， 而且子对象所在的父属性不存在，那么将会报错
+let { foo: { bar }} = { bar : 'baz'}
+
+let _tmp = {bar: 'baz'}
+// _tmp.foo.bar 报错
+
+// 错误
+let x;
+{ x } = { x: 1};
+
+// 正确
+{{} = {true, false}}
+{{} = 'abc'}
+{{} = {}}
+// 虽然表达式没有意义，但是语法是合法的
+
+// 对象的解构赋值，可以将对象的方法赋值给某个变量
+let {sin. cos, tan} = Math;
+
+const [a, b, c, d, e] = 'hello'
+// a -> 'h'
+// b -> 'e'
+// c -> 'l'
+// d -> 'l'
+// e -> 'o'
+
+
+let {length: len} = 'hello'
+// len 0-> 5
+
+// 解构赋值是，如果等好友百年是数值和布尔值， 则会先转为对象
+let { toString: s } = 123;
+// s === Number.prototype.toString // true
+
+let { toString: s } = true;
+// s === Boolean.prototype.toString true
+
+
+// 由于 undefined 和 null 无法转为对象，所以他们进行结构赋值，都会报错
+let { prop: x } = undefined; // 报错
+let { prop: y } = null; //报错
+
+// 函数参数的解构赋值
+
+function add([x, y]) {
+	return x + y;
+}
+
+add([1, 2]); // 3
+
+// 函数 add 的参数表面上是一个数组，但是对于函数内部而言，感受到的是 x 和 y
+
+
+[[1, 2], [3, 4]].map(([a, b]) =>{ return  a + b}) // [3, 7]
+
+// 函数的解构也可以有默认值
+
+function move({x = 0, y = 0} = {}) {
+	return [x, y];
+}
+
+move({x: 3, y:4}) // [3, 4]
+move({x: 3}) // [3, 0]
+move({}) // [0, 0]
+move() // [0, 0]
+
+// 与上面的方法 结果不一样
+function move({x, y} = {x: 0, y: 0}) {
+	return [x, y];
+}
+
+move ({x: 3, y: 4}) // [3, 4]
+move({x: 3}) // [3, undefined]
+move({}) // [undefined, undefined]
+move() // [0, 0]
+
+// 因为上面代码为函数move 的默认值，而不为x， y单独设置默认值，所以跟之前不一样
+
+
+// undefined会触发默认值
+[1, undefined, 3].map(x = 'map' => x)
+// [1, 'map', 3]
+
+
+// 不能使用圆括号的情况， 圆括号容易导致解构错误
+
+// 1) 变量生命语句 以下会报错
+let [(a)] = [1]
+
+let {x: (c)} = {}
+let {{x: c}} = {}
+let {(x: c)} = {}
+let {(x): c} = {}
+
+let { o: ({p: p })} = { o: {p: 2}}
+
+
+// 2) 函数参数
+// 函数参数也属于变量生命， 因此不能带有圆括号
+function f([(z)]) { return z; }
+
+function
+
