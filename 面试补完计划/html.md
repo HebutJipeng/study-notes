@@ -32,7 +32,7 @@ control 属性供添加播放、暂停和音量控件。
 上面的例子第一个使用一个 Ogg 文件，适用于Firefox、Opera 以及 Chrome 浏览器。
 要确保适用于 Safari 浏览器，视频文件必须是 MPEG4 类型。
 video 元素允许多个 source 元素。source 元素可以链接不同的视频文件。浏览器将使用第一个可识别的格式：
- 同理，音频实例：
+ 同理，音频实例： 
 
 	<!DOCTYPE HTML>
 	<html>
@@ -46,5 +46,4 @@ video 元素允许多个 source 元素。source 元素可以链接不同的视�
 	
 	</body>
 	</html>
-
 
