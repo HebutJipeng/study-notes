@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>drag</title>
+	<style>
+		#div1 {
+			width: 400px;
+			height: 70px;
+			padding: 10px;
+			border: 1px solid #aaa;
+		}
+
+		#drag1 {
+			width: 50px;
+			height: 50px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		function allowDrop (e) {
+			e.preventDefault();
+		}
+		function drag (e) {
+			e.dataTransfer.setData('Text', e.target.id)
+		}
+		function drop (e) {
+			var data = e.dataTransfer.getData('Text')
+			e.preventDefault();
+			e.target.appendChild(document.getElementById(data))
+
+		}
+	</script>
+	<p>请把图片拖放到举行中</p>
+
+	<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+	<div id="drag1" src="" draggable="true" ondragstart="drag(event)"></div>
+
+	<!-- 笔记 -->
+	<!-- https://developer.mozilla.org/zh-CN/docs/Web/API/DataTransfer -->
+	<!-- 在进行拖放操作时，DataTransfer 对象用来保存被拖动的数据。它可以保存一项或多项数据、一种或者多种数据类型 -->
+
+</body>
+</html>
