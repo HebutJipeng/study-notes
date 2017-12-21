@@ -156,7 +156,7 @@ SVG
 	* 速度 - 已缓存资源加载得更快
 	* 减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源。
 
-	<!DOCTYPE HTML>
+	`<!DOCTYPE HTML>
 	<html manifest="/example/html5/demo_html.appcache">
 	<body>
 	<script type="text/javascript" src="/example/html5/demo_time.js">
@@ -165,7 +165,8 @@ SVG
 	<p><img src="" /></p>
 	<p>请打开<a href="/example/html5/html5_html_manifest.html" target="_blank">这个页面</a>，然后脱机浏览，重新加载页面。页面中的脚本和图像依然可用。</p>
 	</body>
-	</html>
+	</html>`
+
 	每个指定了 manifest 的页面在用户对其访问时都会被缓存。如果未指定 manifest 属性，则页面不会被缓存（除非在 manifest 	文件中直接指定了该页面）。
 	> manifest 文件的建议的文件扩展名是：".appcache"。
 	> manifest 文件需要配置正确的 MIME-type，即 "text/cache-manifest"。必须在 web 服务器上进行配置。
@@ -201,7 +202,7 @@ SVG
 	Server-Sent 事件指的是网页自动获取来自服务器的更新。
 	以前也可能做到这一点，前提是网页不得不询问是否有可用的更新。通过服务器发送事件，更新能够自动到达。
 
-	\<!DOCTYPE html\>
+	`<!DOCTYPE html>
 	<html>
 	<body>
 	<h1>获得服务器更新</h1>
@@ -223,8 +224,8 @@ SVG
 	</script>
 	 
 	</body>
-	</html>
-	
+	</html>`
+
 	例子解释：
 	* 创建一个新的 EventSource 对象，然后规定发送更新的页面的 URL（本例中是 "demo\_sse.php"）
 	* 每接收到一次更新，就会发生 onmessage 事件
