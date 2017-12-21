@@ -2,7 +2,7 @@
 这是 属于 HebutJipeng 的零散的学习笔记
 ---
 
->> 一切奇淫巧技都是纸老虎
+> 一切奇淫巧技都是纸老虎
 
 recent aims :
 less; (后来看了sass)

@@ -57,11 +57,11 @@ video 元素允许多个 source 元素。source 元素可以链接不同的视�
 		function allowDrop(ev)  {
 		ev.preventDefault();
 		}
-		 
+		
 		function drag(ev)  {
 		ev.dataTransfer.setData("Text",ev.target.id);
 		}
-		 
+		
 		function drop(ev){
 		ev.preventDefault();
 		var data=ev.dataTransfer.getData("Text");
@@ -71,11 +71,11 @@ video 元素允许多个 source 元素。source 元素可以链接不同的视�
 		</head>
 		~<body>~
 		<p>请把图片拖放到矩形中：</p>
-		 
+		
 		<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 		<br />
 		<img id="drag1" src="/i/xxx.gif" draggable="true" ondragstart="drag(event)" />
-		 
+		
 		</body>
 		</html>
 
@@ -104,7 +104,7 @@ canvas 元素本身是没有绘图能力的。所有的绘制工作必须在 Jav
 	*  SVG 是可伸缩的
 	*  SVG 图像可在任何的分辨率下被高质量地打印
 	*  SVG 可在图像质量不下降的情况下被放大
-		 
+			  
 > Canvas 与 SVG
 Canvas 和 SVG 都允许您在浏览器中创建图形，但是它们在根本上是不同的。
 
@@ -156,7 +156,7 @@ HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并
 	* 速度 - 已缓存资源加载得更快
 	* 减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源。
 
-	<!DOCTYPE html>
+	\<!DOCTYPE html\>
 	<html manifest="/example/html5/demo_html.appcache">
 	<body>
 	<script type="text/javascript" src="/example/html5/demo_time.js">
@@ -201,12 +201,12 @@ FALLBACK
 	Server-Sent 事件指的是网页自动获取来自服务器的更新。
 	以前也可能做到这一点，前提是网页不得不询问是否有可用的更新。通过服务器发送事件，更新能够自动到达。
 
-	<!DOCTYPE html>
+	\<!DOCTYPE html\>
 	<html>
 	<body>
 	<h1>获得服务器更新</h1>
 	<div id="result"></div>
-	
+	 
 	<script>
 	if(typeof(EventSource)!=="undefined")
 	  {
@@ -221,12 +221,43 @@ FALLBACK
 	  document.getElementById("result").innerHTML="Sorry, your browser does not support server-sent events...";
 	  }
 	</script>
-	
+	 
 	</body>
 	</html>
 例子解释：
-* 创建一个新的 EventSource 对象，然后规定发送更新的页面的 URL（本例中是 "demo_sse.php"）
+* 创建一个新的 EventSource 对象，然后规定发送更新的页面的 URL（本例中是 "demo\_sse.php"）
 * 每接收到一次更新，就会发生 onmessage 事件
 * 当 onmessage 事件发生时，把已接收的数据推入 id 为 "result" 的元素中
+
+## html5 新增标签
+| 最新标签        | 说明           | 对应老的标签 |
+| ------------- |:-------------:| -----:|
+| video    | 表示一段视频并提供播放的用户界面 | 
+| audio	 | 表示音频 |
+| canvas	 | 表示位图区域 |
+| source	 | 为video和audio提供数据源 |
+| track	 | 为video和audio指定字母 |
+| svg	 | 定义矢量图 |
+| code	 | 代码段 |
+| figure	 | 和文档有关的图例 |
+| figcaption	 | 图例的说明 |
+| main	|
+| time	 | 日期和时间值 |
+| mark	 | 高亮的引用文字 |
+| datalist	 | 提供给其他控件的预定义选项 |
+| keygen	 | 秘钥对生成器控件 |
+| output	 | 计算值 |
+| progress	 | 进度条 |
+| menu	 | 菜单 |
+| embed	 | 嵌入的外部资源 |
+| menuitem	 | 用户可点击的菜单项 |
+| menu	 | 菜单 |
+| template	|
+| section	|
+| nav	|
+| aside	|
+| article	|
+| footer	|
+| header	|
 
 [1]:	https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation/Using_geolocation
