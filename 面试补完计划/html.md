@@ -234,15 +234,15 @@ SVG
 ## html5 新增标签
 
 | 最新标签        | 说明           | 对应老的标签 |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:| :-----:|
 | video    | 表示一段视频并提供播放的用户界面 | 
-| audio	 | 表示音频 | :<object type="application/ogg" data="someaudio.wav"><param name="src" value="someaudio.wav"></object>
-| canvas	 | 表示位图区域 | <object data="inc/hdr.svg" type="image/svg+xml" width="200" height="200"></object>
-| source	 | 为video和audio提供数据源 | <param>
+| audio	 | 表示音频 | <object type="application/ogg" data="someaudio.wav"><param name="src" value="someaudio.wav"></object> |
+| canvas	 | 表示位图区域 | <object data="inc/hdr.svg" type="image/svg+xml" width="200" height="200"></object>|
+| source	 | 为video和audio提供数据源 | <param>|
 | track	 | 为video和audio指定字母 |
 | svg	 | 定义矢量图 |
 | code	 | 代码段 |
-| figure	 | 和文档有关的图例 |  <dl><h1>PRC</h1><p>The People's Republic of China was born in 1949...</p></dl>
+| figure	 | 和文档有关的图例 |  `<dl><h1>PRC</h1><p>The People's Republic of China was born in 1949...</p></dl>` |
 | figcaption	 | 图例的说明.”figcaption” 元素应该被置于 “figure” 元素的第一个或最后一个子元素的位置。 |
 | main	|
 | time	 | 日期和时间值 |
