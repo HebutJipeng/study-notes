@@ -232,34 +232,45 @@ SVG
 	* 当 onmessage 事件发生时，把已接收的数据推入 id 为 "result" 的元素中
 
 ## html5 新增标签
-| 最新标签        | 说明           | 对应老的标签 |
-| ------------- |:-------------:| -----:|
-| video    | 表示一段视频并提供播放的用户界面 | 
-| audio	 | 表示音频 |
-| canvas	 | 表示位图区域 |
-| source	 | 为video和audio提供数据源 |
-| track	 | 为video和audio指定字母 |
-| svg	 | 定义矢量图 |
-| code	 | 代码段 |
-| figure	 | 和文档有关的图例 |
-| figcaption	 | 图例的说明 |
-| main	|
-| time	 | 日期和时间值 |
-| mark	 | 高亮的引用文字 |
-| datalist	 | 提供给其他控件的预定义选项 |
-| keygen	 | 秘钥对生成器控件 |
-| output	 | 计算值 |
-| progress	 | 进度条 |
-| menu	 | 菜单 |
-| embed	 | 嵌入的外部资源 |
-| menuitem	 | 用户可点击的菜单项 |
-| menu	 | 菜单 |
-| template	|
-| section	|
-| nav	|
-| aside	|
-| article	|
-| footer	|
-| header	|
+
+	| 最新标签        | 说明           | 对应老的标签 |
+	| ------------- |:-------------:| -----:|
+	| video    | 表示一段视频并提供播放的用户界面 | 
+	| audio	 | 表示音频 | :<object type="application/ogg" data="someaudio.wav"><param name="src" value="someaudio.wav"></object>
+	| canvas	 | 表示位图区域 | <object data="inc/hdr.svg" type="image/svg+xml" width="200" height="200"></object>
+	| source	 | 为video和audio提供数据源 | <param>
+	| track	 | 为video和audio指定字母 |
+	| svg	 | 定义矢量图 |
+	| code	 | 代码段 |
+	| figure	 | 和文档有关的图例 |  <dl><h1>PRC</h1><p>The People's Republic of China was born in 1949...</p></dl>
+	| figcaption	 | 图例的说明.”figcaption” 元素应该被置于 “figure” 元素的第一个或最后一个子元素的位置。 |
+	| main	|
+	| time	 | 日期和时间值 |
+	| mark	 | 高亮的引用文字.主要用来在视觉上向用户呈现那些需要突出的文字。<mark>标签的一个比较典型的应用就是在搜索结果中向用户高亮显示搜索关键词。 | span
+	| datalist	 | 提供给其他控件的预定义选项, 与 input 元素配合使用，就可以制作出输入值的下拉列表。            |
+	| keygen	 | 秘钥对生成器控件 |
+	| output	 | 计算值 .标签定义不同类型的输出，比如脚本的输出。 | span
+	| progress	 | 进度条 | 
+	| menu	 | 菜单 |
+	| embed	 | 嵌入的外部资源 | <object data="flash.swf"  type="application/x-shockwave-flash"></object>
+	| menuitem	 | 用户可点击的菜单项 |
+	| menu	 | 菜单 |
+	| template	|
+	| section	|  标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分
+	| nav	|
+	| aside	| 标签定义 article 以外的内容。aside 的内容应该与 article 的内容相关。 | div
+	| article  | 标签定义外部的内容。比如来自一个外部的新闻提供者的一篇新的文章，或者来自 blog 的文本，或者是来自论坛的文本。亦或是来自其他外部源内容。 | div 
+	| footer  | 标签定义 section 或 document 的页脚。| div
+	| header  | 标签定义 section 或 document 的页眉。 | div
+	| command | 标签定义命令按钮，比如单选按钮、复选框或按钮。| 
+	| details | 标签定义元素的细节，用户可进行查看，或通过点击进行隐藏。与 <legend> 一起使用，来制作 detail 的标题。该标题对用户是可见的，当在其上点击时可打开或关闭 detail。 |  <dl style="display:hidden"></dl>
+	| summary | 标签包含 details 元素的标题，”details” 元素用于描述有关文档或文档片段的详细信息。”summary” 元素应该是 “details” 元素的第一个子元素。 | 
+	| hgroup | 标签用于对网页或区段（section）的标题进行组合。 | div
+	| meter |  标签定义度量衡。仅用于已知最大和最小值的度量。必须定义度量的范围，既可以在元素的文本中，也可以在 min/max 属性中定义。| 
+	| nav | 标签定义导航链接的部分。| ul
+	| ruby | 标签定义字符（中文注音或字符）的解释或发音 | 
+	| rp  | ruby 的注释
+	| rt  | 标签定义字符（中文注音或字符）的解释或发音 | 
+
 
 [1]:	https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation/Using_geolocation
