@@ -272,5 +272,52 @@ SVG
 | rp  | ruby 的注释
 | rt  | 标签定义字符（中文注音或字符）的解释或发音 | 
 
+## web 语义化
+	> Web语义化是指使用语义恰当的标签，使页面有良好的结构，页面元素有含义，能够让人和搜索引擎都容易理解。
+
+	为什么要语义化
+		* 了在没有CSS的情况下，页面也能呈现出很好地内容结构、代码结构:为了裸奔时好看；
+		* 有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重；
+
+		* 方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；
+		* 用户体验：例如title、alt用于解释名词或解释图片信息、label标签的活用；
+		* 便于团队开发和维护，语义化更具可读性，是下一步吧网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。
+
+	注意事项 (更像是参考文档的个人理解)
+		* 不要使用纯样式标签，如：b、font、u等，改用css设置。
+		* 尽可能少的使用无语义的标签div和span；
+
+		* 在语义不明显时，既可以使用div或者p时，尽量用p, 因为p在默认情况下有上下间距，对兼容特殊终端有利；
+		* 需要强调的文本，可以包含在strong或者em标签中（浏览器预设样式，能用CSS指定就不用他们），strong默认样式是加粗（不要用b），em是斜体（不用）；
+		* 使用表格时，标题要用caption，表头用thead，主体部分用tbody包围，尾部用tfoot包围。表头和一般单元格要区分开，表头用th，单元格用td；
+		* 表单域要用fieldset标签包起来，并用legend标签说明表单的用途；
+		* 每个input标签对应的说明文本都需要使用label标签，并且通过为input设置id属性，在lable标签中设置for=someld来让说明文本和相对应的input关联起来。
+
+
+	`<header></header>
+	 <nav></nav>
+	 <article>
+	 	<section></section>
+	 </article>
+	 <aside></aside>
+	 <footer></footer>`
+
+## 新增API 
+	基本是上面内容的汇总
+	* 语义： 能够让你更恰当地描述你的内容是什么。 
+	* 连通性： 能够让你和服务器之间通过创新的新技术方法进行通信（web sockets等）。 
+	* 离线 & 存储：能够让网页在客户端本地存储数据以及更高效地离线运行（离线资源、在线和离线事件、DOM存储、IndexDB、自web应用程序中使用文件[FileReader]）。 
+	* 多媒体：使 video 和 audio 成为了在所有 Web 中的一等公民。 
+	* 2D/3D 绘图 & 效果：提供了一个更加分化范围的呈现选择(canvas、webGL)。 
+	* 性能 & 集成：提供了非常显著的性能优化和更有效的计算机硬件使用（WebWorkers、XMLHttpRequest2、HistoryAPI、拖放、requestAnimationFrame、全屏API、指针锁定API、在线和离线事件）。 
+	* 设备访问 Device Access：能够处理各种输入和输出设备（触控事件touch、使用地理位置定位、检测设备方向）。
+
+
+	FILE API 
+	History	 API
+
+## 移除的元素
+	* 纯表现的元素： basefont、big、center、font等 
+	* 对可用性产生负面影响的元素： frame、frameset、noframes
 
 [1]:	https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation/Using_geolocation
