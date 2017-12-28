@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul class="num">
+		<li name="1">xx-xx</li>
+		<li name="2">xx</li>
+		<li name="3">xx-xx-xx-xxx</li>
+	</ul>
+
+	<style>
+		ul.num {
+		    /*overflow: hidden;
+		    height: 200px;*/
+		    /*max-width: 300px;*/
+		}
+
+		ul.num li {
+			position: relative;
+			float: left;
+			display: block;
+			list-style-type: none;
+			margin-left: 20px;
+			color: #666;
+			border-bottom: 1px solid red;
+		}
+
+		ul.num li:before {
+			content: '';
+			position: absolute;
+			top: 12px;
+			left: -20px;
+			height: 1px;
+			width: 20px;
+			background-color: #666;
+		}
+		ul.num li:first-child:before {
+			display: none;
+		}
+		ul.num li:after {
+			content:  attr(name);
+			position: absolute;
+			left: 50%;
+			top: 100%;
+			width: attr(length);
+			height: 60px;
+			display: block;
+			border: 1px solid red;
+			border-right: none;
+			border-top: none;
+			text-align: right;
+			line-height: 120px;
+
+		}
+
+		ul.num li:nth-child(2):after  {
+			height: 20px;
+			line-height: 40px;
+			width: 280px;
+		}
+		ul.num li:nth-child(1):after  {
+			height: 40px;
+			line-height: 80px;
+			width: 328px;
+		}
+	</style>
+</body>
+</html>
