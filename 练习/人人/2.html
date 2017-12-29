@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="">
+		<label><input type="email" pattern="[^@]*@[^@]*"><a href="">next</a></label>
+		<button>submit</button>
+	</form>
+	<style>
+		label {
+			position: relative;
+		}
+		input[type='email'] {
+			position: relative;
+		}
+		input[type='email']:valid+a {
+			content: 'next';
+			position: absolute;
+			right: 0;
+			top: 0;
+			color: blue;
+		}
+		input[type='email']:invalid+a {
+			content: 'next';
+			position: absolute;
+			right: 0;
+			top: 0;
+			color: red;
+		}
+		input[type='email']:valid {
+			color: blue;
+		}
+		input[type='email']:invalid {
+			color: red;
+		}
+
+	</style>
+	
+</body>
+</html>

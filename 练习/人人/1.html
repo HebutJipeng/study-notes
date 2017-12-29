@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul class="wrap">
+		<li>tab1
+			<ul class="sub">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</li>
+		<li>tab2
+			<ul class="sub">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</li>
+		<li>tab3
+			<ul class="sub">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</li>
+	</ul>
+	<style>
+		.wrap {
+			width: 120px;
+			color: #fff;	
+		}
+		.wrap> li {
+			position: relative;
+			float: left;
+			display: block;
+			background: red;
+		}
+		.wrap> li:hover >.sub {
+			display: block;
+		}
+		.sub {
+			position: absolute;
+			width: 30px;
+			background: blue;
+			color: #fff;
+			display: none;
+		}
+	</style>
+</body>
+</html>
