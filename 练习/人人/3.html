@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    var x = 1;
+    var kit = {
+        x: 2,
+        buf: {
+            x: 3,
+            fac: function() {
+                return this.x;
+            }
+        }
+    }
+
+    var kbf = kit.buf.fac;
+    console.log(kbf)
+    console.log(kbf()); // 1
+
+    console.log(kit.buf.fac()) // 3
+
+    function Foo() {
+        var i = 0;
+        return function() {
+            console.log(i++)
+        }
+    }
+
+    var f1 = Foo(),
+        f2 = Foo()
+    f1();
+    f1();
+    f2();
+    </script>
+</body>
+
+</html>
