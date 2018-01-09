@@ -91,9 +91,12 @@
 		`background: -webkit-gradient(radial, 50 50, 50, 50 50, 0, from(black), color-stop(.5, red), to(red))`
 
 8. 阴影 和 反射
-	`.class1{ 
-	text-shadow:5px 2px 6px rgba(64, 64, 64, 0.5); 
-	} `
-	`.class2{ 
-	box-shadow:3px 3px 3px rgba(0, 64, 128, 0.3); 
-	}`
+	<pre><code>
+		.class1{ 
+			text-shadow:5px 2px 6px rgba(64, 64, 64, 0.5); 
+		} 
+		.class2{ 
+			box-shadow:3px 3px 3px rgba(0, 64, 128, 0.3); 
+		}
+	</code></pre>
+
