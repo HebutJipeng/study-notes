@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			box-sizing: content-box;
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			display: flex;
+			flex-direction: column;
+		}	
+
+		header, 
+		footer {
+			flex: 0 0 50px;
+			background: red;
+		}
+
+		main {
+			display: flex;
+			flex: 1;
+		}
+
+		.content {
+			height: 1000px;
+			flex: 1; /*1 既放大又缩小*/
+			background-color: yellow;
+		}
+
+		.left,
+		.right {
+			height: 800px;
+			background-color: blue;
+			flex: 0 0 100px;  /*0不放大不缩小*/
+		}
+
+		.right {
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<header></header>
+	<main>
+		<div class="left"></div>
+		<div class="content"></div>
+		<div class="right"></div>
+	</main>
+	<footer></footer>
+</body>
+</html>
