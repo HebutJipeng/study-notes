@@ -322,3 +322,23 @@ History	 API
 * 对可用性产生负面影响的元素： frame、frameset、noframes
 
 [1]:	https://developer.mozilla.org/zh-CN/docs/Web/API/Geolocation/Using_geolocation
+
+## 移动端 <viewport> 的意义以及原理
+	
+`<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">`
+
+
+| 属性       | 说明          | 
+| ------------- |:-------------:|
+| width  | 	设置layout viewport  的宽度，为一个正整数，或字符串"width-device" | 
+| initial-scale	| 设置页面的初始缩放值，为一个数字，可以带小数 |
+| minimum-scale | 允许用的最小缩放值，为一个数字，可以带小数 |
+| maximum-scale | 允许用的最大缩放值，为一个数字，可以带小数 |
+| height  | 设置layout viewport  的高度，这个属性对我们并不重要，很少使用 | 
+| user-scalable | 是否允许用户进行缩放，值为"no"或"yes", no 代表不允许，yes代表允许 |
+| 这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开就行了。 |
+| 在安卓中还支持  target-densitydpi  这个私有属性，它表示目标设备的密度等级，作用是决定css中的1px代表多少物理像素 |
+| target-densitydpi | 值可以为一个数值或 high-dpi 、 medium-dpi、 low-dpi、 device-dpi 这几个字符串中的一个 |
+
+> 特别说明的是，当 target-densitydpi=device-dpi 时， css中的1px会等于物理像素中的1px
+
