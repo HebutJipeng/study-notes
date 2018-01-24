@@ -296,9 +296,90 @@
 	> 为父类实例添加新特性，作为子类实例返回
 
 	```js
-		
+		function Cat(name) {
+			var instance = new Animal();
+			instance.name = name || 'Tom';
+			return instance;
+		}
+
+		var cat = new Cat();
+		console.log(cat.name) // Tom
+		console.log(cat.sleep()); 
+		console.log(cat instanceof Animal); // true
+		console.log(cat instanceof Cat); // false
 	```
 
+	特点：
+		*不限制调用方式， 不管是 new子类（） 还是 子类（）， 返回的对象具有相同的效果
+
+	缺点：
+		*实例是父类的实例，不是子类的实例
+		*不支持多继承
+
+
+	4. 拷贝继承
+	```js
+		function Cat(name) {
+			var animal = new Animal();
+			for (var p in animal) {
+				Cat.prototype[p] = animal[p];
+			}
+			Cat.prototype.name = name || 'Tom';
+		}
+	```
+
+	特点
+		*支持多继承
+
+	缺点
+		*效率较低，内存占用高（因为要拷贝父类的属性）
+		*无法获取父类不可美剧的方法
+
+
+	5. 组合继承
+	> 通过调用父类构造 继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用
+
+	```js
+		function Cat(name) {
+			Animal.call(this);
+			this.name = name || 'Tom';
+		}
+
+		Cat.prototype = new Animal();
+
+		Cat.prototype.constructor = Cat;
+	```
+
+	特点：
+		*弥补了方式2的缺陷，可以继承实例属性、方法，也可以继承原型属性、方法
+		*既是子类的实例，也是父类的实例
+		*不存在引用属性共享问题
+		*可传参
+		*函数可复用
+
+	缺点：
+		*调用了两次父类构造函数，生成了两份实例（子类实例将子类原型上的那份屏蔽了）
+
+
+	6. 寄生组合继承
+	> 通过寄生方式， 砍掉弗雷德实例属性，这样 在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免了组合继承的缺点
+
+	```js
+		function Cat(name) {
+			Animal.call(this);
+			this.name = name || 'Tom';
+		}
+
+		Cat.prototype.constructor = Cat;
+
+		(function() {
+			// 创建一个没有实例方法的类
+			var Super = function() {}
+			Super.prototype = Animal.prototype;
+			// 将实例作为子类的原型
+			Cat.prototype = new Super();
+		})()
+	```
 
 
 
