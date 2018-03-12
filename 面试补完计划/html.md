@@ -342,3 +342,6 @@ History	 API
 
 > 特别说明的是，当 target-densitydpi=device-dpi 时， css中的1px会等于物理像素中的1px
 
+## http 三次握手后拿到的HTML，浏览器怎么加载
+
+## 前端优化一般都做哪些

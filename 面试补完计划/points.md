@@ -11,5 +11,11 @@ https://juejin.im/post/5a64541bf265da3e2d338862
 
 
 2. bfc
-
+	清除浮动： 父元素：overflow:hidden | 额外标签 clear: both; | 伪元素 | 双伪元素
 3. 居中问题
+
+4. session、cookie、sessionStorage、localstorage的区别
+
+5. px/em/rem
+
+6. animation和transiton的相关属性

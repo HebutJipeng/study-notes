@@ -381,15 +381,77 @@
 		})()
 	```
 
+5. js 如何判断数据类型
+	基本数据类型： Number、String、Boolean、Null、Undefined   Sylbol(es6)----它的实例是唯一且不可改变的
+	引用类型：Object、Array、Date、RegExp、Function
+
+	typeof | instanceof | a.constructor == Number | Object.prototype.toString.call() == '[Object Number]'
+
+6. 变量声明 和 函数声明的提升
+
+	函数声明的提升优先级大于变量声明的提升
+
+	```js
+		foo(); // 1
+		var foo;
+		function foo() {
+			console.log(1)
+		}
+		foo = function() {
+			console.log(2)
+		}
+	```
+
+	其处理过程为：
+
+	```js
+		function foo() {
+			console.log(1)
+		}
+		var foo;
+		foo();
+		foo = function() {
+			console.log(2)
+		}
+	```
+	函数表达式被提升
+
+	```js
+		foo();             //TypeError
+		bar();            //ReferenceError
+		var foo=function bar(){
+		    //……
+		}
+	```
+
+	处理过程
+
+	```js
+		var foo;
+		foo();
+		bar();
+		foo=function bar(){
+		    //……
+		};
+	```
+
+	顺序：
+	*函数参数（若未传入，初始化该参数值为undefined） 
+	*函数声明（若发生命名冲突，会覆盖） 
+	*变量声明（初始化变量值为undefined，若发生命名冲突，则忽略）
 
 
+	> es6中 let（const）将不会提升变量到代码块的顶部。因此，在变量声明之前引用这个变量，将抛出错误`ReferenceError`。这个变量从代码块的时候就处在一个“暂时性死区”，直到这个变量被声明为止。
 
+	> const 会创建一个只读的常量。不可通通过赋值改变其值，也不可以重新声明。拥有块级作用域。然而，对象属性不受保护，所以可以执行下列语句。
 
+	```js
+		const MY_OBJECT = { 'key': 'value'};
+		MY_OBJECT.key = 'otherValue'
+	```
 
-
-
-
-
+7. event loop
+	
 
 
 
