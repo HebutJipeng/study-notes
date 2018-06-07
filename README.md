@@ -12,13 +12,21 @@ js ds dm
 oh my god！
 
 12-1
-正则
-react rn antd react-router
-scriptoj
-原生js
-docker
-node
-webpack
-梳理css
-单元测试总结
-three.js  https://juejin.im/post/5a1e7e7e51882503eb4b0a80
+正则 (目前：简单应用)
+react(了解) rn（no） antd(同上) react-router（no）
+scriptoj (弃)
+原生js （未开始）
+docker  (未开始)
+node （express koa koa2）
+webpack (em..瞎看)
+梳理css (未开始)
+单元测试总结 （未开始）
+three.js （未开始） https://juejin.im/post/5a1e7e7e51882503eb4b0a80
+
+6-7
+dapp
+vue vuex vue-router 源码
+小程序-cms
+webview js-bridge
+ng5/6 用明白
+python
