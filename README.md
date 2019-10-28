@@ -24,9 +24,16 @@ webpack (em..瞎看)
 three.js （未开始） https://juejin.im/post/5a1e7e7e51882503eb4b0a80
 
 6-7
-dapp
-vue vuex vue-router 源码
-小程序-cms
-webview js-bridge
-ng5/6 用明白
-python
+dapp(没看)
+vue vuex vue-router 源码 (vuex vue-router 源码看了一些)
+小程序-cms (弃)
+webview js-bridge (弃)
+ng5/6 用明白 (算是明白了)
+python (基础使用)
+
+#### 2019-10-28
+这个冬天尤其的冷
+- 写完博客的首页;
+- 把egg + vue-ts + docker + mongo + 部署 弄完;
+- leetcode
+
