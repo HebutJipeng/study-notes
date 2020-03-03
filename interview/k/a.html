@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        a { color: #ccc; }
+        .link a.keeplink{ color: #336699; }
+        .link a[href="www.gotokeep.com"] { color: #f60; }
+        #wrapper { color: #eee; }
+    </style>
+    <div id="wrapper">
+        <h1 class="link">
+            <a href="www.gotokeep.com" class="keeplink">Hello world!</a>
+        </h1>
+    </div>
+    <script>
+(function () {
+    var val = 5;
+    var obj = {
+        val: 12,
+        dbl: function () {
+            val*=2;
+        }
+    }
+    obj.dbl();
+    // alert(obj.val + val);
+}())
+        
+    </script>
+</body>
+</html>
