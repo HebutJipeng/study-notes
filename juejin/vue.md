@@ -36,3 +36,6 @@
 ### 实现Virtual DOM 下的一个VNode节点
 
 ### template 模板是怎么通过 Compile 编译的
+    Compile => (parse、optimize、generate)
+    - parse
+        
