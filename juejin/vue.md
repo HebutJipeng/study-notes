@@ -37,5 +37,21 @@
 
 ### template 模板是怎么通过 Compile 编译的
     Compile => (parse、optimize、generate)
-    - parse
-        
+    - parse 正则匹配成 AST （正则
+    - advance
+
+    TODO: 没看明白
+
+### 数据状态更新时的差异diff 及patch 机制
+    - 跨平台
+    - 一些API
+    - patch
+
+    TODO: 整理说明
+
+## 批量异步更新策略以及nextTick原理
+    在默认情况下，每次触发某个数据 setter方法后， 对应的 Watcher 对象会被push进一个队列 queue中，在下一个tick的时候 将这个队列全部拿出来run( Watch 对象的方法，用来触发patch操作)一遍。
+
+    - nextTick
+
+    TODO: js 的event 事件执行顺序  ；  slice数组拷贝作用 --- 厉害 https://juejin.im/entry/58217da92f301e005c2de257
