@@ -55,3 +55,5 @@
     - nextTick
 
     TODO: js 的event 事件执行顺序  ；  slice数组拷贝作用 --- 厉害 https://juejin.im/entry/58217da92f301e005c2de257
+
+## Vuex 状态管理的工作原理
