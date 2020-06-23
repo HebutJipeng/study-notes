@@ -1,0 +1,12 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+}
+.middle {
+    align-self: center;
+}
+.right {
+    align-self: flex-end;
+}

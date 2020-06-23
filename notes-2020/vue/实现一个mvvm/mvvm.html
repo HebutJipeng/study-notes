@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <h3>姓名</h3>
+        <p>{{name}}</p>
+        <h3>年龄</h3>
+        <p>{{age}}</p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            let opt = {el:'#app', data:{name:'检索中...', age:30}}
+            let vm = new Vue(opt)
+            setTimeout(() => {
+                opt.data.name = '王永峰'
+            }, 2000);
+        }, false)
+        class Vue {
+            constructor(opt) {
+                this.opt = opt
+                this.observe(this.opt.data)
+                const el = document.querySelector(this.opt.el)
+                this.compile(el)
+            }
+
+            observe(data) {
+                Object.keys(data).forEach(key => {
+                    const obv = new Observer()
+                    data[`_${ key }`] = data[key]
+                    Object.defineProperty(data, key, {
+                        get() {
+                            if (Observer.target) {
+                                obv.addSubNode(Observer.target)
+                            }
+                            return data[`_${ key }`]
+                        },
+                        set(newVal) {
+                            obv.update(newVal)
+                            data[`_${ key }`] = newVal
+                        }
+                    })
+                })
+            }
+
+            compile(node) {
+                [].forEach.call(node.childNodes, child => {
+                    if (!child.firstElementChild && /\{\{(.*)\}\}/.test(child.innerHTML)) {
+                        let key = RegExp.$1.trim()
+                        child.innerHTML = child.innerHTML.replace(new RegExp('\\{\\{\\s*'+ key +'\\s*\\}\\}', 'gm'),this.opt.data[key])
+                        Observer.target = child
+                        this.opt.data[key]
+                        Observer.target = null
+                    } else if(child.firstElementChild) {
+                        this.compile(child)
+                    }
+                })
+            }
+        }
+
+        class Observer {
+            constructor() {
+                this.subNode = []
+            }
+
+            addSubNode(node) {
+                this.subNode.push(node)
+            }
+
+            update(newVal) {
+                this.subNode.forEach(node => {
+                    node.innerHTML = newVal
+                })
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- todo 用 Proxy 来实现 -->

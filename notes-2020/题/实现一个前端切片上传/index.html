@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>upload file demo</h1>
+        <input type="file" @change="handleFileChange">
+        <button @click="handleUpdate">上传</button>
+    </div>
+</body>
+<script src="./request.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+// async function name(params) {
+//     let res = await fetch('https://api.github.com/orgs/nodejs')
+//     console.log(res)
+// }
+// name()
+
+// test request
+// request({
+//     url: 'https://api.github.com/orgs/nodejs',
+//     method: 'get'
+// })
+const SIZE = 10 * 1024 * 1024
+
+const vm = new Vue({
+    el: '#app',
+    data: () => ({
+        msg: 'hello',
+        container: {
+            file: null
+        },
+        data: []
+    }),
+    methods: {
+        request,
+        handleFileChange(e) {
+            const [ file ] = e.target.files
+            if (!file) {
+                return
+            }
+            this.container.file = file
+        },
+        async handleUpdate() {
+            if (!this.container.file) {
+                return
+            }
+
+            const fileChunkList = this.createFileChunk(this.container.file)
+            this.data = fileChunkList.map(({ file }, index) => {
+                return {
+                    chunk: file,
+                    hash: this.container.file.name + '-' + index
+                }
+            })
+            await this.uploadChunks()
+        },
+        createFileChunk(file, size = SIZE) {
+            const fileChunkList = []
+            let cur = 0
+            while(cur < file.size) {
+                fileChunkList.push({
+                    file: file.slice(cur, cur + size)
+                })
+                cur += size
+            }
+            return fileChunkList
+        },
+        // 上传切片
+        async uploadChunks() {
+            const requestList = this.data.map(({
+                chunk,
+                hash
+            }) => {
+                const formData = new FormData()
+                formData.append('chunk', chunk)
+                formData.append('hash', hash)
+                formData.append('filename', this.container.file.name)
+                return { formData }
+            }).map(({formData}) => {
+                this.request({
+                    url: 'http://localhost:3000/upload',
+                    data: formData
+                })
+            })
+
+            await Promise.all(requestList)
+
+            await this.mergeRequest()
+        },
+        async mergeRequest() {
+            await request({
+                url: 'http://localhost:3000/merge',
+                headers: {
+                    "content-type": "application/json"
+                },
+                data: JSON.stringify({
+                    filename: this.container.file.name,
+                    size: SIZE
+                })
+            })
+        }
+    }
+})
+</script>
+</html>
