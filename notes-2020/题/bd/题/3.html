@@ -1,0 +1,25 @@
+<!-- requestAnimationFrame的作用及使用，替代setTimeout的写法 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" class="box" style="width: 20px; height: 40px; background-color: red;"></div>
+    <script>
+        function animationHandle() {
+            const box = document.getElementById("box")
+            box.style.width = parseInt(box.style.width) + 1 + 'px'
+
+            if (parseInt(box.style.width) < 200) {
+                requestAnimationFrame(animationHandle)
+            }
+        }
+
+        requestAnimationFrame(animationHandle)
+        // 下一次重绘之前更新动画帧所调用的函数(即上面所说的回调函数)
+    </script>
+</body>
+</html>

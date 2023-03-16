@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="float">
+            浮动元素
+        </div>
+        <div class="main">
+            自适应
+        </div>
+    </div>
+
+    <!-- <style>
+        .float{
+            height:100px;
+            float:left;
+            background:red;
+            opacity:0.3;
+            width:200px;
+        }
+        .main{
+            background:green;
+            height:100px;
+        }
+        .container{
+            width:500px;
+            margin-left: 200px;
+        }
+
+    </style> -->
+
+    <style>
+        /* .float {
+            height:100px;
+            float:left;
+            background:red;
+            opacity:0.3;
+            width:200px;
+        }
+        .main {
+            background: green;
+            overflow: hidden;
+            height: 300px;
+        } */
+
+
+        .container {
+            display: flex;
+        }
+
+        .float {
+            width: 200px;
+            background:red;
+        }
+        .main {
+            background: green;
+            flex-grow: 1;
+        }
+    </style>
+</body>
+</html>
